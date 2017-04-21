@@ -18,27 +18,26 @@ angular.module('sscApp.directive', ['sscApp.service']);
 // Declare app level module which depends on views, and components
 
 angular.module('sscApp', [
-  'ngRoute',
+  'ui.router',
   'ui.bootstrap',
-  //'toastr',
   'ngSanitize',
   'sscApp.view1',
   'sscApp.view2',
   'sscApp.version'
 ])
-.config(['$routeProvider', function($routeProvider) {
-  Array.prototype.insert = function (index, item) {
-    this.splice(index, 0, item);
-  };
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}])
-.config(function() {
-  "use strict";
-  //angular.extend(toastrConfig, {
-  //  closeButton: true,
-  //  templates: {
-  //    toast: 'views/templates/custom-toastr.html',
-  //    progressbar: 'directives/progressbar/progressbar.html'
-  //  }
-  //})
+.config(function($stateProvider) {
+  var view1State = {
+    name: 'view1',
+    url: '/view1',
+    templateUrl: 'view1/view1.html'
+  }
+
+  var view2State = {
+    name: 'view2',
+    url: '/view2',
+    templateUrl: 'view2/view2.html'
+  }
+
+  $stateProvider.state(view1State);
+  $stateProvider.state(view2State);
 });

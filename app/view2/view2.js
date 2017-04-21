@@ -1,14 +1,6 @@
 'use strict';
 
-angular.module('sscApp.view2', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view2', {
-    templateUrl: 'view2/view2.html',
-    controller: 'View2Ctrl'
-  });
-}])
-
+angular.module('sscApp.view2', ['ui.router'])
 .controller('View2Ctrl', [function() {
 
 }]);
