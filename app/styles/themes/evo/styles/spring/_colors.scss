@@ -1,0 +1,175 @@
+/*primary*/
+$black: #222;
+$blue-gray: #374143;
+$metal: #666666;
+$dark-metal: #525252;
+$light-metal: #8B8B8B;
+$super--light-metal: #B6B5B5;
+$disabled-darker-gray: #BABABA;
+$darker-gray: #969696;
+$darker-gray-lt: #A9A8A8;
+$dark-gray: #dedede;
+$medium-gray:#e7e7e7;
+$gray: #efefed;
+$light-gray: #E8E8E8;
+
+$blue: #0096d6;
+$medium-blue:#008dcd;
+$dark-blue:#0081bf;
+
+$green:#0ea658;
+$medium-green:#009245;
+$dark-green:#037a25;
+
+$charcoal:#505b5d;
+$medium-charcoal:#414c4e;
+$dark-charcoal:#2f393b;
+
+$critical: #ed1c24;
+$dark-critical: #b00001;
+
+$high: #ff7800;
+$dark-high: #ff3800;
+
+$medium: #f6aa58;
+$dark-medium: #f27520;
+
+$low: #eec845;
+$dark-low: #e2a013;
+
+$open-item-dark:#b3daeb;
+$open-item:#e4f2f9;
+
+$code-bar:#7ee255;
+$code-highlight:#fcd479;
+$code-attribute:#0000ff;
+
+
+@include text-emphasis-variant('.text-primary', $blue);
+
+@include text-emphasis-variant('.text-success', $medium-green);
+
+@include text-emphasis-variant('.text-info', $darker-gray);
+
+@include text-emphasis-variant('.text-warning', $high);
+
+@include text-emphasis-variant('.text-danger', $critical);
+/*colors*/
+
+  .color-box {
+  	display: inline-block;
+  	margin-bottom: 10px;
+	  	h5 {
+	  	padding: 30px;
+	  	color: white;
+	  	margin-bottom: 0;
+	  }
+  }
+
+
+  .black {
+  	background-color: $black;
+  }
+  .blue-gray {
+  	background-color: $blue-gray;
+  }
+   .metal {
+  	background-color: $metal;
+  }
+   .dark-metal {
+    background-color: $dark-metal;
+  }
+   .blue {
+  	background-color: $blue;
+  }
+   .dark-gray{
+  	background-color: $dark-gray;
+  	h5 {color: $black}
+  }
+   .gray {
+  	background-color: $gray;
+  	h5 {color: $black}
+  }
+  .green {
+  	background-color: $green
+  }
+  .medium-green {
+  	background-color: $medium-green
+  }
+ .dark-green {
+ 	background-color: $dark-green
+ }
+ .blue {
+  	background-color: $blue
+  }
+  .medium-blue {
+  	background-color: $medium-blue;
+  }
+  .dark-blue{
+  	background-color: $dark-blue;
+  }
+    .dark-gray {
+  	background-color: $dark-gray;
+  	h5 {color: $black}
+  }
+  .medium-gray {
+  	background-color: $medium-gray;
+  	h5 {color: $black}
+  }
+  .gray {
+  	background-color: $gray;
+  	h5 {color: $black}
+  }
+  .dark-charcoal {
+  	background-color: $dark-charcoal
+  }
+   .medium-charcoal {
+   background-color: $medium-charcoal;
+  }
+  .charcoal {
+  	background-color: $charcoal;
+  }
+  .critical {
+  	background-color: $critical;
+  }
+ .dark-critical {
+  	background-color: $dark-critical;
+  }
+   .high {
+  	background-color: $high;
+  }
+   .dark-high {
+  	background-color: $dark-high;
+  }
+     .medium{
+  	background-color: $medium;
+  }
+   .dark-medium {
+  	background-color: $dark-medium;
+  }
+      .low{
+  	background-color: $low;
+  }
+   .dark-low {
+  	background-color: $dark-low;
+  }
+  .rate {
+  	background-color: $green
+  }
+  .open-item-dark {
+  background-color:$open-item-dark;
+  h5 {color: $black}
+  }
+    .open-item {
+  background-color:$open-item;
+  h5 {color: $black}
+  }
+  .code-bar {
+    background-color:$code-bar;
+  }
+  .code-highlight {
+    background-color: $code-highlight;
+  }
+  .code-attribute {
+    background-color: $code-attribute
+  }

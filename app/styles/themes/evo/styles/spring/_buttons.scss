@@ -1,0 +1,95 @@
+a {
+  text-decoration: none;
+  margin-right: 15px
+}
+
+.cta {
+  font-family: $hpregular;
+  color: white;
+  padding: 7px 12px 7px 12px;
+  cursor: pointer !important;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.primary-cta {
+  @extend .cta;
+  background-color: $blue;
+  border: 2px solid $dark-blue;
+  &:hover {
+    background-color: $medium-blue;
+  }
+}
+
+.secondary-cta {
+  @extend .cta;
+  background-color: $gray;
+  border: 2px solid $dark-gray;
+  color: $blue;
+  &:hover {
+    background-color: $medium-gray;
+  }
+}
+
+.light-cta {
+    @extend .cta;
+    background-color: white;
+    border: 1px solid $dark-gray;
+    color: $blue;
+    &:hover {
+        background-color: white;
+    }
+}
+
+.tertiary-cta {
+  @extend .cta;
+  background-color: $charcoal;
+  border: 2px solid $dark-charcoal;
+  &:hover {
+    background-color: $medium-charcoal;
+  }
+}
+
+.add-cta {
+  @extend .cta;
+  background-color: $green;
+  border: 2px solid $dark-green;
+  &:hover {
+    background-color: $medium-green;
+  }
+
+}
+
+.main-nav {
+  font-size: $h4-font-size;
+  font-family: $hpregular;
+  color: $blue;
+  &:hover {
+    border-bottom-width: 3px;
+    border-bottom-style: solid
+  }
+;
+}
+
+.secondary-main-nav {
+  @extend .main-nav;
+
+  .icon:before {
+    color: $black;
+    font-size: 30px;
+    position: relative;
+    top: 3px;
+  }
+  &:hover {
+    .icon:before {
+      @extend .icon:before;
+      color: $blue;
+    }
+  }
+;
+
+}
+
+	
+	

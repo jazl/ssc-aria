@@ -1,0 +1,38 @@
+<div id="errorModal" class="wizard">
+    <div class="modal-header wiz-header fixed-header container-fluid" id="errorDetailsDialog">
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <h3>Title details</h3>
+            </div>
+            <div class="step-container col-sm-8 col-md-8">
+                <button id="btnClose" type="button" class="close wiz-close" ng-click="close()" data-dismiss="modal" aria-hidden="true">×</button>
+                <div drv-pfm-dialog-header-controls="" dialog-unique-id="errorDetailsDialog"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body handle-content">
+        <div class="error-details-container">
+            <div class="error-detail container-fluid" ng-repeat="item in messageQueue">
+                <div class="row">
+                    <div class="col-sm-9 col-md-9">
+                        <span class="details-container-message" drv-pfm-compile-to-element-safe-html="item.message"></span>
+                    </div>
+                    <div class="col-sm-3 col-md-3">
+                        <div class="pull-right">
+                            item.time
+                        </div>
+                    </div>
+                </div>
+                <div class="details row" ng-show="item.details">
+                    <div class="col-md-12">
+                        <pre>{{item.details}} </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer fixed-footer">
+        <button id="btnCancel" class="btn btn-default" ng-click="close()">Close</button>
+    </div>
+</div>
+

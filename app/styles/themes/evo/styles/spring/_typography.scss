@@ -1,0 +1,72 @@
+/* _typography.scss */
+
+@import "styles/themes/evo/styles/spring/_hpfont";
+@import "styles/themes/evo/styles/spring/_icons";
+@import "styles/themes/evo/styles/spring/_colors";
+
+
+/*headers*/
+h1,h2,h3,h4,h5,h6,h7,h8,h9 {
+	margin-bottom: 1em;
+}
+h1 {
+font-size: $h1-font-size;
+font-family: $hpbold;
+ }
+
+h2 {
+font-size: $h2-font-size;
+font-family: $hpregular;
+ }
+
+h3 {
+font-size: $h3-font-size;
+font-family: $hpbold;
+ }
+
+h4 {
+font-size: $h4-font-size;
+font-family: $hpregular;
+ } 
+h5 {
+font-size: $h5-font-size;
+font-family: $hpregular;
+ }
+h6 {
+font-size: $h6-font-size;
+font-family: $hpregular;
+font-weight: normal;
+ }  
+h7 {
+font-size: $h7-font-size;
+font-family: $hplight;
+display: block;
+ }
+h8 {
+font-size: $h8-font-size;
+font-family: $hpregular;
+display: block;
+ }
+h9 {
+font-size: $h9-font-size;
+font-family: $hpregular;
+display: block;
+ }
+ p {font-family: $paragraph-font-family;
+ 	color:$metal;
+ 	line-height: 20px;
+ 	font-size: 14px;
+
+ }
+ ul.glyphs {
+ 	list-style-type:none;
+ 	li {
+ 		display: inline-block;
+ 		font-size: 30px;
+ 		input {
+ 			border: none;
+ 			font-size: 14px;
+ 			padding-bottom: 20px;
+ 		}
+ 	} 
+ }

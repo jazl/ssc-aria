@@ -1,0 +1,12 @@
+<div id="toast" class="{{toastClass}} {{toastType}}">
+	<div ng-switch on="allowHtml">
+		<div ng-switch-default ng-if="title" class="{{titleClass}}" aria-label="{{title}}">{{title}}</div>
+		<div ng-switch-default class="{{messageClass}}" aria-label="{{message}}">{{message}}</div>
+		<div ng-switch-when="true" ng-if="title" class="{{titleClass}}" ng-bind-html="title"></div>
+		<div ng-switch-when="true" class="{{messageClass}}" ng-bind-html="message"></div>
+    <div ng-controller="InlineMessageController">
+      <a ng-show='{{true}}' id='btnShowMoreErrors' class='' href ng-click='showDetailsDialog()' style="color:white;">Show Moar!</a>
+    </div>
+	</div>
+	<progress-bar ng-if="progressBar"></progress-bar>
+</div>

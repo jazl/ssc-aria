@@ -1,0 +1,33 @@
+/*
+ * (C) Copyright 2014 Hewlett-Packard Development Company, L.P.
+ */
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: $h1-font-size - 5;
+    font-family: $hpbold;
+  }
+
+  h2 {
+    font-size: $h2-font-size - 5;
+    font-family: $hpregular;
+  }
+}
+
+@media (min-width: 1200px) {
+    .gutter.row-fluid {
+        //should figure out the math but these are trial and error
+        .span6 {
+            width: 51.7% !important;
+        }
+        .span8 {
+            width: 66.9% !important;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    /*.modal-dialog {
+        margin: 120px auto 30px auto;
+    }*/
+}
