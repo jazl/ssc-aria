@@ -1,10 +1,17 @@
-<h4>Datepicker</h4>
-
-<div>
-    <drv-pfm-datepicker ng-model="model.dt" class="inline-block"
-                        ng-required="true">
-    </drv-pfm-datepicker>
-
-
+<div class="container">
+    <form name="generalForm" class="validation-form wizard-view-top-container form-container general-container" novalidate="" >
+        <div class="row">
+            <h5 class="inline-block icon-label">Test Form</h5>
+            <div class="label-with-progress">
+                <h6 drv-pfm-asterisk="createAppMode">Application Name</h6>
+            </div>
+            <input id="textAppName" class="wiz-col-input wiz-col-input-top-line form-control" type="text" ng-model="model.appName"
+                    placeholder="Application Name"
+                    ng-required="true" name="appName" 
+                    aria-required="true">
+            <h6>Description</h6>
+            <textarea id="textAppDesc" class="wiz-col-input form-control" type="text" ng-attr-placeholder="Application description" aria-label="Application description"
+                        ng-model="model.appDesc">                    </textarea>
+        </div>
+    </form>
 </div>
-
