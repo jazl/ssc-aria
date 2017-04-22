@@ -1,17 +1,101 @@
-<div class="container">
-    <form name="generalForm" class="validation-form wizard-view-top-container form-container general-container" novalidate="" >
-        <div class="row">
-            <h5 class="inline-block icon-label">Test Form</h5>
-            <div class="label-with-progress">
-                <h6 drv-pfm-asterisk="createAppMode">Application Name</h6>
+<div class="container" ng-controller="View1Ctrl">
+    <div class="row"   style="margin-bottom:35px;">
+        <form name="generalForm" class="validation-form wizard-view-top-container form-container general-container" novalidate="" >
+            <div class="row">
+                <h5 class="inline-block icon-label">Test Form</h5>
+                <div class="label-with-progress">
+                    <h6 drv-pfm-asterisk="createAppMode">Application Name</h6>
+                </div>
+                <input id="textAppName" class="wiz-col-input wiz-col-input-top-line form-control" type="text" ng-model="model.appName"
+                        placeholder="Application Name"
+                        ng-required="true" name="appName" 
+                        aria-required="true">
+                <h6>Description</h6>
+                <textarea id="textAppDesc" class="wiz-col-input form-control" type="text" ng-attr-placeholder="Application description" aria-label="Application description"
+                            ng-model="model.appDesc">                    </textarea>
             </div>
-            <input id="textAppName" class="wiz-col-input wiz-col-input-top-line form-control" type="text" ng-model="model.appName"
-                    placeholder="Application Name"
-                    ng-required="true" name="appName" 
-                    aria-required="true">
-            <h6>Description</h6>
-            <textarea id="textAppDesc" class="wiz-col-input form-control" type="text" ng-attr-placeholder="Application description" aria-label="Application description"
-                        ng-model="model.appDesc">                    </textarea>
+        </form>
+    </div>
+    <div class="row">
+        <nav class="navbar navbar-default title-bar secondary">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav controls-row navbar-no-margin inline-block">
+                    <li>
+                        <a><div class="btn-group-tertiary btn-group-with-icons">
+                            <label id="btnSelect{{viewStyle}}" ng-repeat="viewStyle in model.viewStyles"
+                                class="btn tertiary-cta btn-nav btn-default" ng-model="model.currentViewStyle"
+                                ng-click="setCurrentViewStyle(viewStyle)" uib-btn-radio="'{{viewStyle}}'">
+                                <i class="{{model.viewStylesIcons[$index]}}"></i><span>{{viewStyle}}</span>
+                            </label>
+                        </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="dashboard-risk gutter row">
+        <div id="groupByContainer" class="toolbar-container attr-select-container col-xs-3 col-md-3" drv-pfm-hotkey="GROUP_BY" hotkey-action="ui-select-dropdown">
+            <div class="pull-left inline-block icon-container">
+                <h6 class="inline-block title selection-title pull-left">Group By</h6>
+
+                <div id="groupByClear" class="select-clear inline-block pull-left" aria-label="Group By"
+                     ng-class="{'remove-active': model.groupBy }" ng-click="clearGroupBy()" aria-disabled="{{!model.groupBy}}"
+                     uib-tooltip="Clear All" tooltip-append-to-body="true"
+                     tabindex="{{model.groupBy ? 0 : -1}}">
+                    <span class="icon-remove icon-medium"></span>
+                </div>
+            </div>
+            <ui-select ng-model="model.groupBy" class="inline-block" id="attrGroupBySelect" tabindex="0" aria-label="Group By" role="list">
+                <ui-select-match placeholder="Select attribute">{{$select.selected.name}}
+                </ui-select-match>
+                <ui-select-choices
+                        repeat="attrDef.guid as attrDef in model.groupAndFilterByAttrs| filter: {name:$select.search}">
+                    <div ng-bind-html="attrDef.name | highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
         </div>
-    </form>
+        <div ng-if="!trendViewOn" id="aggregateByContainer" drv-pfm-hotkey="AGGREGATE" hotkey-action="ui-select-dropdown"
+             class="toolbar-container attr-select-container col-xs-3 col-md-3">
+            <div class="pull-left inline-block icon-container ">
+                <h6 class="inline-block title selection-title pull-left">Aggregate By</h6>
+                <div id="aggregateByClear" class="select-clear inline-block pull-left" aria-label="Clear all"
+                     ng-class="{'remove-active': model.aggregateBy }" ng-click="clearAggregate()"  aria-disabled="{{!model.aggregateBy}}"
+                     uib-tooltip="Clear all" tooltip-append-to-body="true" tabindex="{{model.aggregateBy ? 0 : -1}}">
+                    <i class="icon-remove icon-medium"></i>
+                </div>
+            </div>
+            <ui-select ng-model="model.aggregateBy" class="inline-block" id="attrAggregateSelect" tabindex="0" aria-label="Aggregate By" role="list">
+                <ui-select-match placeholder="Select attribute">{{$select.selected.name}}
+                </ui-select-match>
+                <ui-select-choices
+                        repeat="attrDef.guid as attrDef in model.groupAndFilterByAttrs| filter: {name:$select.search}">
+                    <div ng-bind-html="attrDef.name | highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+        <div id="riskFilterContainer" class="select-container toolbar-container col-xs-6 col-md-6" drv-pfm-hotkey="FILTER" hotkey-action="ui-select-dropdown">
+            <div class="pull-left inline-block icon-container ">
+                <h6 class="inline-block title selection-title pull-left">Filter By</h6>
+
+                <div id="riskFilterClear" class="inline-block pull-left select-clear"
+                     ng-class="{'remove-active': model.filterSelection.length > 0}" ng-click="clearFilters()"
+                     uib-tooltip="Clear all" tooltip-append-to-body="true" aria-disabled="{{model.filterSelection.length === 0}}"
+                     tabindex="{{model.filterSelection.length > 0 ? 0 : -1}}" aria-label="Filter By">
+                    <i class="icon-remove icon-medium"></i>
+                </div>
+
+            </div>
+            <ui-select id="filterSelect" ng-model="model.filterSelection" class="inline-block select2-container-wide"
+                       multiple="" tabindex="0">
+                <ui-select-match placeholder="Select attribute">{{$item.selectedLabel}}
+                </ui-select-match>
+                <ui-select-choices
+                        repeat="opt.selectValue as opt in model.groupAndFilterByAttrsMulti| filter: {name:$select.search}"
+                        group-by="'defName'" refresh="searchApps($select.search)" ui-disable-choice="!opt.selectValue">
+                    <div ng-bind-html="opt.name | highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
 </div>

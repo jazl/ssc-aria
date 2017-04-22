@@ -21,6 +21,7 @@ angular.module('sscApp', [
   'ui.router',
   'ui.bootstrap',
   'ngSanitize',
+  'ui.select',
   'sscApp.view1',
   'sscApp.view2',
   'sscApp.version'
